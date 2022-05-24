@@ -1,4 +1,6 @@
-from BlackboardNextClicker import run
+from BlackboardNextClicker import next
+from BlackboardBackClicker import back
+
 from pynput import keyboard
 
 def on_press(key):
@@ -17,7 +19,11 @@ def on_release(key):
         # Stop listener
         return False
     if key == keyboard.Key.right:
-        run()
+        print("Clicking next")
+        next()
+    if key == keyboard.Key.left:
+        print("Clicking back")
+        back()
     
 # Collect events until released
 with keyboard.Listener(
