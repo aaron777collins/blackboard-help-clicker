@@ -15,6 +15,7 @@ def on_press(key):
     #         key))
 
 def on_release(key):
+    global PAUSED
     # print('{0} released'.format(
     #     key))
     if key == keyboard.Key.esc:
