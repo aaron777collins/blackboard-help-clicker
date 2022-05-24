@@ -22,6 +22,10 @@ def on_release(key):
         # Stop listener
         return False
     if key == keyboard.KeyCode.from_char('`'):
+        if PAUSED:
+            print("Resuming")
+        else:
+            print("Pausing")
         PAUSED = not PAUSED
     if not PAUSED:
         if key == keyboard.Key.right:
