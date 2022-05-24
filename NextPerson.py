@@ -3,6 +3,8 @@ from BlackboardBackClicker import back
 
 from pynput import keyboard
 
+PAUSED = False
+
 def on_press(key):
     pass
     # try:
@@ -18,12 +20,15 @@ def on_release(key):
     if key == keyboard.Key.esc:
         # Stop listener
         return False
-    if key == keyboard.Key.right:
-        print("Clicking next")
-        next()
-    if key == keyboard.Key.left:
-        print("Clicking back")
-        back()
+    if key == keyboard.KeyCode.from_char('`'):
+        PAUSED = not PAUSED
+    if not PAUSED:
+        if key == keyboard.Key.right:
+            print("Clicking next")
+            next()
+        if key == keyboard.Key.left:
+            print("Clicking back")
+            back()
     
 # Collect events until released
 with keyboard.Listener(
